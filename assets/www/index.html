@@ -36,7 +36,7 @@
 
     // Cordova is ready
     //
-    function display() {
+    
     function onDeviceReady() {
         // Throw an error if no update is received every 30 seconds
         var options = { timeout: 30000 };
@@ -112,18 +112,9 @@
 			seconds = "0" + seconds
     	
 			document.all('timer').innerHTML = '<h1>'+hours+':'+minutes+':'+seconds+'</h1>';
-   	   		}
-		}
-
-		function swreset() {
-			state = 0;
-			ms = 0;
-			document.all('timer').innerHTML = '<h1>00:00:00</h1>';
-		}
-
-		
-    }
-    setTimeout("display();", 500);
+			}
+		function display() {
+   		setTimeout("display();", 500);
 		if (state == 1)  {
 		now = new Date();
 		ms = now.getTime() - then.getTime();
@@ -143,7 +134,14 @@
 
 		document.all('timer').innerHTML = '<h1>'+hours+':'+minutes+':'+seconds+'</h1>';
 		}
-      
+    }
+		}
+
+		function swreset() {
+			state = 0;
+			ms = 0;
+			document.all('timer').innerHTML = '<h1>00:00:00</h1>';
+		}  
     }
 
     // onError Callback receives a PositionError object
@@ -155,9 +153,9 @@
     
     </script>
   </head>
-  <body onload="display()">
+  <body onload="onDeviceReady()">
     
-    <div data-role="page" id="page" >
+    <div data-role="page" id="page">
 
 	<div data-role="header" align="center" data-position="fixed">
 		<h1>RunforHealth</h1>
