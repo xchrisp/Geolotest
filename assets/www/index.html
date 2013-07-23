@@ -26,7 +26,7 @@
                             'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
                             'Heading: '            + position.coords.heading               + '<br />' +
                             'Speed: '              + position.coords.speed                 + '<br />' +
-                            'Timestamp: '          +                                   position.timestamp          + '<br />';
+                            'Timestamp: '          + position.timestamp          + '<br />';
     }
 
     // onError Callback receives a PositionError object
@@ -38,7 +38,7 @@
 
     </script>
   </head>
-  <body onLoad="onDeviceReady">
+  <body onload="onDeviceReady()">
     <p id="geolocation">Finding geolocation...</p>
   </body>
 </html>
