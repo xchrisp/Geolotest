@@ -40,15 +40,19 @@
 
       console.log("setting up map");
 	var firstLoc = new google.maps.LatLng(lat,long);
+	var marker = new GMarker(center, {draggable: false});  // สร้างตัว mark เริ่มต้น  
 	var myOptions = {
-		zoom: 13,
+		zoom: 15,
 		center: firstLoc,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
-	var marker = new GMarker(center, {draggable: false});  // สร้างตัว mark เริ่มต้น  
-    	map.addOverlay(marker); 
 
 	var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+	
+	var marker = new google.maps.Marker({
+      	position: myLatlng,
+     	map: map,
+ 	});
 
 	var polyOptions = {
 		strokeColor: "#000000",
