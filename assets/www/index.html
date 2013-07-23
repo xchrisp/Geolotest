@@ -22,7 +22,7 @@
 	<style type="text/css">
 	html {height:100%}
 	body {height:100%; margin:0; padding:0}
-	#map_canvas {height:40%; width:30%}
+	#map_canvas {height:50%; width:50%}
 	</style>
 
 <!-- Java Script System -->
@@ -36,7 +36,7 @@
 
     // Cordova is ready
     //
-    
+    function display() {
     function onDeviceReady() {
         // Throw an error if no update is received every 30 seconds
         var options = { timeout: 30000 };
@@ -86,7 +86,7 @@
       
       // ----------------------Time Set--------------------------------------------------
   	var ms = 0;
-		var state = 0;
+	var state = 0;
 
 		function startstop() {
 			if (state == 0) {
@@ -121,8 +121,9 @@
 			document.all('timer').innerHTML = '<h1>00:00:00</h1>';
 		}
 
-		function display() {
-		setTimeout("display();", 500);
+		
+    }
+    setTimeout("display();", 500);
 		if (state == 1)  {
 		now = new Date();
 		ms = now.getTime() - then.getTime();
@@ -141,7 +142,6 @@
 		seconds = "0" + seconds
 
 		document.all('timer').innerHTML = '<h1>'+hours+':'+minutes+':'+seconds+'</h1>';
-   		}
 		}
       
     }
@@ -155,7 +155,7 @@
     
     </script>
   </head>
-  <body onload="onDeviceReady()">
+  <body onload="display()">
     
     <div data-role="page" id="page" >
 
