@@ -4,6 +4,12 @@
     <title>Device Properties Example</title>
 
     <script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+	<style type="text/css">
+	html {height:100%}
+	body {height:100%; margin:0; padding:0}
+	#map_canvas {height:80%}
+	</style>
     <script type="text/javascript" charset="utf-8">
 
     // Wait for Cordova to load
@@ -41,7 +47,8 @@
               'message: ' + error.message + '\n');
     }
     
-
+var poly;
+var map; 
 
 function mapSetup(lat,long){
 
@@ -68,6 +75,7 @@ function mapSetup(lat,long){
     </script>
   </head>
   <body onload="initGMap()">
+  <div id="map_canvas"></div>
     <p id="geolocation">Watching geolocation...</p>
   </body>
 </html>
