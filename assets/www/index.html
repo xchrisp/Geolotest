@@ -14,11 +14,15 @@
 
     // Cordova is ready
     //
+    
+        function initGMap(){
+
     function onDeviceReady() {
         // Throw an error if no update is received every 30 seconds
-        var options = { timeout: 3000 };
+        var options = { timeout: 30000 };
         watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
     }
+        }
 
     // onSuccess Geolocation
     //
@@ -27,6 +31,7 @@
         element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
                             'Longitude: ' + position.coords.longitude     + '<br />' +
                             '<hr />'      + element.innerHTML;
+        mapSetup(position.coords.latitude,position.coords.longitude);
     }
 
     // onError Callback receives a PositionError object
@@ -35,10 +40,34 @@
         alert('code: '    + error.code    + '\n' +
               'message: ' + error.message + '\n');
     }
+    
+
+
+function mapSetup(lat,long){
+
+      console.log("setting up map");
+	var firstLoc = new google.maps.LatLng(lat,long);
+	var myOptions = {
+		zoom: 13,
+		center: firstLoc,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
+
+	map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+
+	var polyOptions = {
+		strokeColor: "#000000",
+		strokeOpacity: 1.0,
+		stroekWeight: 3
+	}
+	poly = new google.maps.Polyline(polyOptions);
+	poly.setMap(map);
+}	
+    
 
     </script>
   </head>
-  <body onload="onDeviceReady()">
+  <body onload="initGMap()">
     <p id="geolocation">Watching geolocation...</p>
   </body>
 </html>
