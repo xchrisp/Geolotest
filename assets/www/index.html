@@ -40,7 +40,6 @@
 
       console.log("setting up map");
 	var firstLoc = new google.maps.LatLng(lat,long);
-	var marker = new GMarker(center, {draggable: false});  // สร้างตัว mark เริ่มต้น  
 	var myOptions = {
 		zoom: 15,
 		center: firstLoc,
@@ -50,7 +49,7 @@
 	var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
 	
 	var marker = new google.maps.Marker({
-      	position: myLatlng,
+      	position: firstLoc,
      	map: map,
  	});
 
