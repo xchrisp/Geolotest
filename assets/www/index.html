@@ -43,6 +43,7 @@
 	var myOptions = {
 		zoom: 13,
 		center: firstLoc,
+		marker: firstLoc,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 
@@ -55,6 +56,8 @@
 	}
 	poly = new google.maps.Polyline(polyOptions);
 	poly.setMap(map);
+	
+
       }	
     }
 
