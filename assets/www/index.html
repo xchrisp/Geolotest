@@ -43,9 +43,10 @@
 	var myOptions = {
 		zoom: 13,
 		center: firstLoc,
-		marker: firstLoc,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
+	var marker = new GMarker(center, {draggable: false});  // สร้างตัว mark เริ่มต้น  
+    	map.addOverlay(marker); 
 
 	var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
 
