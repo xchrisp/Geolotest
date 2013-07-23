@@ -52,15 +52,19 @@
       	position: firstLoc,
      	map: map,
  	});
+ 	
 
-	var polyOptions = {
-		strokeColor: "#000000",
-		strokeOpacity: 1.0,
-		stroekWeight: 3
-	}
-	poly = new google.maps.Polyline(polyOptions);
-	poly.setMap(map);
-	
+  var flightPlanCoordinates = [
+    new google.maps.LatLng(lat,long),
+  ];
+  var flightPath = new google.maps.Polyline({
+    path: flightPlanCoordinates,
+    strokeColor: "#FF0000",
+    strokeOpacity: 1.0,
+    strokeWeight: 2
+  });
+
+  flightPath.setMap(map);
 
       }	
     }
