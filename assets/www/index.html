@@ -69,12 +69,15 @@
      	map: map,
  	});
  
-
+	}
     // onError Callback receives a PositionError object
     //
     function onError(error) {
         alert('code: '    + error.code    + '\n' +
               'message: ' + error.message + '\n');
+    }
+    
+    
     }
     
     
@@ -140,7 +143,7 @@
     
     </script>
   </head>
-  <body onload="display()">
+  <body onload="onDeviceReady())">
     
     <div data-role="page" id="page">
 
@@ -167,7 +170,7 @@
 </tr>
 <tr>
 	<td colspan="2">
-	<div onClick="onDeviceReady()" >
+	<div onClick="display()" >
 	<input TYPE="BUTTON" Name="ssbutton" VALUE="Start/Stop" onClick="startstop()">
 	<input TYPE="BUTTON" NAME="reset" VALUE="End" onClick="swreset()">
 	</div>
