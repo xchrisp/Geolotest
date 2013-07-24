@@ -140,7 +140,7 @@
     
     </script>
   </head>
-  <body onload="onDeviceReady()">
+  <body onload="display()">
     
     <div data-role="page" id="page">
 
@@ -167,8 +167,10 @@
 </tr>
 <tr>
 	<td colspan="2">
+	<div onClick="onDeviceReady()" >
 	<input TYPE="BUTTON" Name="ssbutton" VALUE="Start/Stop" onClick="startstop()">
 	<input TYPE="BUTTON" NAME="reset" VALUE="End" onClick="swreset()">
+	</div>
 	</form>
     	</td>
 </tr>
