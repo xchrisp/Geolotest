@@ -68,25 +68,19 @@
       	position: firstLoc,
      	map: map,
  	});
- 	
+ 
 
-  var flightPlanCoordinates = [
-    new google.maps.LatLng(lat,long),
-  ];
-  var flightPath = new google.maps.Polyline({
-    path: flightPlanCoordinates,
-    strokeColor: "#FF0000",
-    strokeOpacity: 1.0,
-    strokeWeight: 2
-  });
-
-  flightPath.setMap(map);
-
-      }	
-      
-      // ----------------------Time Set--------------------------------------------------
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+    
+    
+    // ----------------------Time Set--------------------------------------------------
   	var ms = 0;
-	var state = 0;
+		var state = 0;
 
 		function startstop() {
 			if (state == 0) {
@@ -112,9 +106,17 @@
 			seconds = "0" + seconds
     	
 			document.all('timer').innerHTML = '<h1>'+hours+':'+minutes+':'+seconds+'</h1>';
-			}
+   	   		}
+		}
+
+		function swreset() {
+			state = 0;
+			ms = 0;
+			document.all('timer').innerHTML = '<h1>00:00:00</h1>';
+		}
+
 		function display() {
-   		setTimeout("display();", 500);
+		setTimeout("display();", 500);
 		if (state == 1)  {
 		now = new Date();
 		ms = now.getTime() - then.getTime();
@@ -133,23 +135,8 @@
 		seconds = "0" + seconds
 
 		document.all('timer').innerHTML = '<h1>'+hours+':'+minutes+':'+seconds+'</h1>';
+   		}
 		}
-    }
-		}
-
-		function swreset() {
-			state = 0;
-			ms = 0;
-			document.all('timer').innerHTML = '<h1>00:00:00</h1>';
-		}  
-    }
-
-    // onError Callback receives a PositionError object
-    //
-    function onError(error) {
-        alert('code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');
-    }
     
     </script>
   </head>
