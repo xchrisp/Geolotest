@@ -108,8 +108,14 @@
 			seconds = Math.floor((ms%(1000 * 60))/1000);
 			if (seconds < 10)
 			seconds = "0" + seconds
+			
+			minisec = Math.floor((ms%(1000))/100);
+			if (minisec < 10)
+			minisec = "0" + minisec
+			
+			
     	
-			document.all('timer').innerHTML = '<h1>'+hours+':'+minutes+':'+seconds+':'+ms+'</h1>';
+			document.all('timer').innerHTML = '<h1>'+hours+':'+minutes+':'+seconds+':'+minisec+'</h1>';
    	   		}
 		}
 
@@ -120,7 +126,7 @@
 		}
 
 		function display() {
-		setTimeout("display();", 500);
+		setTimeout("display();", 1);
 		if (state == 1)  {
 		now = new Date();
 		ms = now.getTime() - then.getTime();
@@ -137,8 +143,13 @@
 		seconds = Math.floor(seconds_divisor/1000);
 		if (seconds < 10)
 		seconds = "0" + seconds
+		
+		minisec_divisor = ms%(1000);
+		minisec = Math.floor(minisec_divisor/100);
+		if (minisec < 10)
+		minisec = "0" + minisec
 
-		document.all('timer').innerHTML = '<h1>'+hours+':'+minutes+':'+seconds+':'+ms+'</h1>';
+		document.all('timer').innerHTML = '<h1>'+hours+':'+minutes+':'+seconds+':'+minisec+'</h1>';
    		}
 		}
     
