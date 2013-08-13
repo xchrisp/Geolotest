@@ -10,7 +10,7 @@
 			display: block;
 			width: 18px;
 			height: 2px;
-			background-color: #CC6600;
+			background-color: #E0FFFF;
 			  -webkit-border-radius: 1px;
 				 -moz-border-radius: 1px;
 					  border-radius: 1px;
@@ -25,7 +25,7 @@
 
 		.slide-menu {
 			height:100%;
-			background-color:#cccccc;
+			background-color:#D3D3D3;
 			width:200px;
 			position:absolute;
 			left:-200px;
@@ -46,7 +46,7 @@
 			font-size: 13px;
 			word-break: break-all;
 			word-wrap: break-word;
-			background-color: #cccccc;
+			background-color: #F8F8FF;
 			border: 1px solid #ccc;
 			 border: 1px solid rgba(0, 0, 0, 0.15);
 			-webkit-border-radius: 4px;
@@ -71,8 +71,8 @@
 
 	<div id="menudiv" class="block" style="height:90%;">
 		<button id="stpmode" class="btn btn-large btn-inverse" type="button" style="width:100%">Stopwatch</button><br>
-		<button id="historymode" class="btn btn-large btn-inverse" type="button" style="width:100%">Lap History</button><br>
-		<button id="mapgps" class="btn btn-large btn-inverse" type="button" style="width:100%">Map Gps</button>
+		<button id="sumtime" class="btn btn-large btn-inverse" type="button" style="width:100%">Total Time</button>
+		<button id="historymode" class="btn btn-large btn-inverse" type="button" style="width:100%">Lap</button><br>
 	</div>
 </div>
 
@@ -87,7 +87,7 @@
 				<span class="icon-bar icon-white"></span>
 				<span class="icon-bar icon-white"></span>
 			 </button>
-			  <a class="brand" href="#" style="float:center"><center>Stopwatch</center></a>
+			  <a class="brand" href="#" style="float:center"><center>Watch Timer</center></a>
 			
 		</div>
 	</div>
@@ -95,31 +95,6 @@
 
 
 	<div id="datablock01" class="block" style="height:100%;margin: 5px 5px 5px 5px;">
-		<center><h1 id="timer" style="font-size:50px;margin:40px;">00:00:00.0</h1></center><br>
-		<center>
-			<button type="button" id="btn-start-stop" class="btn btn-large btn-success" style="width:100%;height:60px;">Start</button>
-			<button type="button" id="btn-lap" class="btn btn-large btn-primary" style="width:100%;height:60px;">Reset</button>
-		</center>
-		<br>
-		<div id="mytimeblock" class="block" style="overflow-x: hidden;overflow-y: scroll;height:48%;margin: 0px 5px 5px 5px;">
-			<center id="mytime">
-				
-			</center>
-		</div>
-	</div>
-
-	<div id="datablock02" class="block" style="height:100%;margin: 5px 5px 5px 5px;">
-	
-		<center><h1 style="font-size:50px;margin:40px;">History</h1></center><br>
-		<div id="mytimeblock2" class="block" style="overflow-x: hidden;overflow-y: scroll;height:60%;margin: 0px 5px 5px 5px;">
-			<center id="mytime2">
-				
-			</center>
-		</div>
-		<button type="button" id="btn-delall" class="btn btn-large btn-danger" style="width:100%;height:60px;">DELETE ALL DATA</button>
-	</div>
-	
-	<div id="datablock03" class="block" style="height:100%;margin: 5px 5px 5px 5px;">
 		
 		<script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
@@ -188,21 +163,47 @@
               'message: ' + error.message + '\n');
     }	
 	</script>
-		<center><h1 style="font-size:50[x;margin:40px;">Map</h1></center>
 		
-			<div data-role="page" id="page">
+		<div data-role="page" id="page">
 				<div data-role="header" align="center" data-position="fixed"></div><br>
 					<table border="0" cellspacing="0" cellpadding="0" align="CENTER">
 						<tr>
-							<td colspan="2" width="351" height="251">
+							<td colspan="2" width="550" height="350">
 								<div id="map_canvas" align="center"></div>
 							</td>
 						</tr>
 
 					</table>
 			</div>
-		
+		<center><h1 id="timer" style="font-size:50px;margin:40px;">00:00:00.0</h1></center><br>
+		<center>
+			<button type="button" id="btn-start-stop" class="btn btn-large btn-success" style="width:100%;height:60px;">Start</button>
+			<button type="button" id="btn-lap" class="btn btn-large btn-danger" style="width:100%;height:60px;">Reset</button>
+		</center>
+		<br>
+		<div id="mytimeblock" class="block" style="overflow-x: hidden;overflow-y: scroll;height:48%;margin: 0px 5px 5px 5px;">
+			<center id="mytime">
+				
+			</center>
+		</div>
 	</div>
+	
+	<div id="datablock02" class="block" style="height:100%;margin: 5px 5px 5px 5px;">
+	
+		<center><h1 style="font-size:50px;margin:40px;">Lap</h1></center><br>
+		<div id="mytimeblock2" class="block" style="overflow-x: hidden;overflow-y: scroll;height:60%;margin: 0px 5px 5px 5px;">
+			<center id="mytime2">
+				
+			</center>
+		</div>
+		<button type="button" id="btn-delall" class="btn btn-large btn-danger" style="width:100%;height:60px;">DELETE ALL DATA</button>
+	</div>
+	
+	<div id="datablock03" class="block" style="height:100%;margin: 5px 5px 5px 5px;">
+		
+		<center><h1 style="font-size:50px;margin:50px;">Time Total</h1></center><br>
+		<center><h1 id="timeall" style="font-size:45px;margin:1px;">00:00:00</h1></center><br>
+	</div>	
 	
 </div>
 
@@ -217,6 +218,7 @@
 
 var timeuse = 0;
 var timeinterval = 0;
+var timeall = 0;
 var lap_array = new Array();
 
 
@@ -252,14 +254,39 @@ function TimerOK()
 	}
 }
 
+function millisectime(mills)
+{
+	var hour = Math.floor(timeall/36000);
+	var min = Math.floor(timeall/600)%60;
+	var sec = Math.floor(timeall/10)%60;
+
+	if (hour < 10) hour = "0" + hour;
+	if (min < 10) min = "0" + min;
+	if (sec < 10) sec = "0" + sec;
+
+	return (hour + ":" + min + ":" + sec);
+
+
+}
+function Timeall()
+{
+
+	timeall = timeall + timeinterval;
+	$('#timeall').html(millisectime(timeall));
+
+}
+
 $(document).ready(function() { // On page load completed do it function.
 	var status = 0;
 	var btntoggle = 0;
-	
+	//if(localStorage.getItem('time_all'))
+		//timeall = parsInt(localStorage.getItem('time_all'))
+		
 	if(localStorage.getItem('timer_history') && localStorage.getItem('timer_current')){
 		lap_array = JSON.parse(localStorage.getItem('timer_history'));
 		timeinterval = parseInt(localStorage.getItem('timer_current'));
 	}
+	//var timeallstring = "";
 	var buildstring = "";
 
 	for(var i = 0; i < lap_array.length;i++)
@@ -270,6 +297,7 @@ $(document).ready(function() { // On page load completed do it function.
 	}
 	$('#mytime').html(buildstring);
 	$('#mytime2').html(buildstring);
+	//$('#timeall').html(timeallstring);
 	$('#timer').html(millisectotime(timeinterval));
 	
 	$("#datablock02").hide();
@@ -290,7 +318,7 @@ $(document).ready(function() { // On page load completed do it function.
 		status = 0;
 	});
 	
-	$('#mapgps').on('click',function(){
+	$('#sumtime').on('click',function(){
 		$('#datacon').animate({left:0},500);
 		$('#slidemenu').animate({left:-200},500);
 		$("#datablock01").hide(500);
@@ -332,7 +360,7 @@ $(document).ready(function() { // On page load completed do it function.
 			var buildstring = "";
 			for(var i = 0; i < lap_array.length;i++)
 			{
-				buildstring =  '<h1 style="font-size:40px">' + (i+1) + ' - ' + lap_array[i] + '</h1>' + buildstring ;
+				buildstring =  '<h1 style="font-size:30px">' + (i+1) + ' - ' + lap_array[i] + '</h1>' + buildstring ;
 				
 
 			}
@@ -375,12 +403,15 @@ $(document).ready(function() { // On page load completed do it function.
 			$('#btn-lap').html('Reset');
 			timeuse = 0;
 			btntoggle = 0;
+			Timeall();
 		}
 
 	});
 
 
 });
+
+
 </script>
 
 
