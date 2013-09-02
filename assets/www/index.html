@@ -1,119 +1,21 @@
 <html>
 	<head>
-		<meta charset="utf-8">
-		<title>Stop Watch</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
 		<link href="./css/bootstrap.css" rel="stylesheet">
 		<link href="./css/bootstrap-responsive.css" rel="stylesheet">
-		<script src="./js/jquery.mobile-1.3.1.min.js"></script>
-		<script src="./js/jquery-2.0.3.js"></script>
-		<style>
-		.btn .icon-bar {
-			display: block;
-			width: 18px;
-			height: 2px;
-			background-color: #E0FFFF;
-			  -webkit-border-radius: 1px;
-				 -moz-border-radius: 1px;
-					  border-radius: 1px;
-			  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
-				 -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
-					  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
-		}
-
-		.btn .icon-bar + .icon-bar {
-			 margin-top: 3px;
-		}
-
-		.slide-menu {
-			height:100%;
-			background-color:#D3D3D3;
-			width:200px;
-			position:absolute;
-			left:-200px;
-			top:0px;
-		}
-
-		#datacon{
-				width:100%;
-				position:absolute;
-				top:0px;
-				left:0px;
-				
-		}
-
-		.block {
-			display: block;
-			margin: 0 0 10px;
-			font-size: 13px;
-			word-break: break-all;
-			word-wrap: break-word;
-			background-color: #F8F8FF;
-			border: 1px solid #ccc;
-			 border: 1px solid rgba(0, 0, 0, 0.15);
-			-webkit-border-radius: 4px;
-				-moz-border-radius: 4px;
-				border-radius: 4px;
-			}
-		</style>
 		
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
 	</head>
-<body style="overflow:hidden" onload="onDeviceReady()">
-
-
-
-<div id="slidemenu" class="slide-menu">
-	<div class="navbar navbar-inverse navbar-static-top">
-      <div class="navbar-inner">
-		<div class="container">
-          <a class="brand" href="#">Menu</a>
-		</div>
-	</div>
-	</div>
-
-	<div id="menudiv" class="block" style="height:90%;">
-		<button id="stpmode" class="btn btn-large btn-inverse" type="button" style="width:100%">Stopwatch</button><br>
-		<button id="sumtime" class="btn btn-large btn-inverse" type="button" style="width:100%">Total Time</button>
-		<button id="historymode" class="btn btn-large btn-inverse" type="button" style="width:100%">History</button><br>
-	</div>
-</div>
-
-
-
-<div id="datacon" style="height:90%">
-	<div class="navbar navbar-inverse navbar-static-top">
-		  <div class="navbar-inner" >
-			
-			<button id="btnslide" type="button" class="btn btn-inverse" style="float:left;">
-				<span class="icon-bar icon-white"></span>
-				<span class="icon-bar icon-white"></span>
-				<span class="icon-bar icon-white"></span>
-			 </button>
-			  <a class="brand" href="#" style="float:center"><center>Watch Timer</center></a>
-			
-		</div>
-	</div>
-
-
-
-	<div id="datablock01" class="block" style="height:100%;margin: 5px 5px 5px 5px;">
-		
-		<script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-		<!-- CSS Style Sheet -->
-			<link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css">
-			<link rel="stylesheet" href="css/jquery.mobile.structure-1.3.1.css">
-
-		
+		<body style="overflow:hidden" onload="onDeviceReady()">
 		
 		<style type="text/css">
 		html {height:100%}
 		body {height:100%; margin:0; padding:0}
 		#map_canvas {height:100%; width:100%}
 		</style>
-
-<!-- Java Script System -->
-<script type="text/javascript" charset="utf-8">
+		<script type="text/javascript" charset="utf-8">
 
     // Wait for Cordova to load
     //
@@ -166,198 +68,206 @@
     }	
 	</script>
 		
-		<div data-role="page" id="page">
-				<div data-role="header" align="center" data-position="fixed"></div><br>
-					<table border="0" cellspacing="0" cellpadding="0" align="CENTER">
-						<tr>
-							<td colspan="2" width="550" height="350">
-								<div id="map_canvas" align="center"></div>
-							</td>
-						</tr>
-
-					</table>
+		
+		<div data-role="page" id="home" >
+			<div data-role="header">
+				<h1>Exercise Healthy</h1>
 			</div>
-		<center><h1 id="timer" style="font-size:50px;margin:40px;">00:00:00</h1></center><br>
-		<center>
-			<button type="button" id="btn-start-stop" class="btn btn-large btn-success" style="width:100%;height:60px;">Start</button>
-			<button type="button" id="btn-pause" class="btn btn-large btn-inverse" style="width:100%;height:60px;">Pause</button>
-		</center>
-		<br>
+			
+			<div data-role="header" align="center" data-position="fixed"></div><br>
+			<!-- <script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script> -->
+			<script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
+			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+			<!-- CSS Style Sheet -->
+			<link rel="stylesheet" href="./css/jquery.mobile-1.3.2.css">
+			<link rel="stylesheet" href="./css/jquery.mobile.structure-1.3.2.css">
+
 		
-	</div>
-	
-	<div id="datablock02" class="block" style="height:100%;margin: 5px 5px 5px 5px;">
-	
-		<center><h1 style="font-size:50px;margin:40px;">History</h1></center><br>
-		<div id="mytimeblock2" class="block" style="overflow-x: hidden;overflow-y: scroll;height:60%;margin: 0px 5px 5px 5px;">
-			<center id="mytime2">
-				
-			</center>
-		</div>
-		<button type="button" id="btn-delall" class="btn btn-large btn-danger" style="width:100%;height:60px;">DELETE ALL DATA</button>
-	</div>
-	
-	<div id="datablock03" class="block" style="height:100%;margin: 5px 5px 5px 5px;">
 		
-		<center><h1 style="font-size:45px;margin:50px;">Time Total</h1></center><br>
-		<center><h1 id="timeall" style="font-size:45px;margin:1px;">00:00:00</h1></center><br>
-	</div>	
-	
-</div>
+			<!--<style type="text/css">
+			html {height:100%}
+			body {height:100%; margin:0; padding:0}
+			#map_canvas {height:100%; width:100%}
+			</style>-->
+				<table border="0" cellspacing="0" cellpadding="0" align="CENTER" >
+					<tr>
+						<td colspan="1" width="330" height="350">
+							<div id="map_canvas" align="center"></div><br>
+						</td>
+					</tr>
 
-
-
-
-
-
-<script src="./js/jquery-2.0.3.js"></script>
-<script src="./js/bootstrap.js"></script>
+				</table>	
+				<table border="0"  cellspacing="0"cellpadding="0" align="center">
+					<tr>
+						<td colspan="2" width="157" height="10">
+							Distance<h1 id="dist" style="font-size:20px;margin:40px;">0.0</h1>
+						</td>
+						<td colspan="2" width="157" height="10">
+							Time<h1 id="timer" style="font-size:20px;margin:40px;">00:00:00</h1>
+						</td>	
+					</tr>	
+				<table>		
+				<center>
+					<button type="button" id="btn-start-stop" class="btn btn-large btn-success" style="width:100%;height:50px;">Start</button>
+					<button type="button" id="btn-pause" class="btn btn-large btn-inverse" style="width:100%;height:50px;">Pause</button>
+				</center>
+			<div data-role="footer" data-position="fixed" class="nav-glyphish-example">
+				<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
+					<ul>
+						<li><a href="#" id="home" >Home</a></li>
+						<li><a href="#" id="history" >Route</a></li>
+						<li><a href="#" id="" >Friend</a></li>
+						<li><a href="#" id="" >History</a></li>
+					
+					</ul>
+				</div>
+			</div>
+		</div>	
+		
+<script src="./js/bootstrap.js"></script>		
 <script language="javascript">
-
-var timeuse = 0;
-var timeinterval = 0;
-var timeall = 0;
-var lap_array = new Array();
-
+	var timeuse = 0;
+	var timeinterval = 0;
+	var timeall = 0;
+	var lap_array = new Array();
 
 
-function millisectotime(mill)
-{
-	var hour = Math.floor(timeinterval/36000);
-	var min = Math.floor(timeinterval/600)%60;
-	var sec = Math.floor(timeinterval/10)%60;
 
-	if (hour < 10) hour = "0" + hour;
-	if (min < 10) min = "0" + min;
-	if (sec < 10) sec = "0" + sec;
-
-	return (hour + ":" + min + ":" + sec  );
-
-
-}
-
-function TimerOK()
-{	
-	timeinterval = timeinterval + 1;
-
-
-	$('#timer').html(millisectotime(timeinterval));
-
-	localStorage.setItem('timer_current',timeinterval);
-	localStorage.setItem('timer_history',JSON.stringify(lap_array));
-
-	if(timeuse == 1)
+	function millisectotime(mill)
 	{
-		setTimeout('TimerOK()', 100);
+		var hour = Math.floor(timeinterval/36000);
+		var min = Math.floor(timeinterval/600)%60;
+		var sec = Math.floor(timeinterval/10)%60;
+
+		if (hour < 10) hour = "0" + hour;
+		if (min < 10) min = "0" + min;
+		if (sec < 10) sec = "0" + sec;
+
+		return (hour + ":" + min + ":" + sec  );
+
+
 	}
-}
 
-function millisectime(mills)
-{
-	var hour = Math.floor(timeall/36000);
-	var min = Math.floor(timeall/600)%60;
-	var sec = Math.floor(timeall/10)%60;
-
-	if (hour < 10) hour = "0" + hour;
-	if (min < 10) min = "0" + min;
-	if (sec < 10) sec = "0" + sec;
-
-	return (hour + ":" + min + ":" + sec);
+	function TimerOK()
+	{	
+		timeinterval = timeinterval + 1;
 
 
-}
+		$('#timer').html(millisectotime(timeinterval));
 
-function ResetTime()
-{	
+		localStorage.setItem('timer_current',timeinterval);
+		localStorage.setItem('timer_history',JSON.stringify(lap_array));
+
+		if(timeuse == 1)
+		{
+			setTimeout('TimerOK()', 100);
+		}
+	}
+
+	function millisectime(mills)
+	{
+		var hour = Math.floor(timeall/36000);
+		var min = Math.floor(timeall/600)%60;
+		var sec = Math.floor(timeall/10)%60;
+
+		if (hour < 10) hour = "0" + hour;
+		if (min < 10) min = "0" + min;
+		if (sec < 10) sec = "0" + sec;
+
+		return (hour + ":" + min + ":" + sec);
+
+
+	}
+
+	function ResetTime()
+	{	
 			timeuse = 0;
 			timeinterval = 0;
 			$('#timer').html(millisectotime(timeinterval));
-}
+	}
 
-function Timeall()
-{
+	function Timeall()
+	{
 
 	timeall = timeall + timeinterval;
 	$('#timeall').html(millisectime(timeall));
 
-}
+	}
 
-$(document).ready(function() { // On page load completed do it function.
-	var status = 0;
-	var btntoggle = 0;
-	var btntoggles  =0;
-	//if(localStorage.getItem('time_all'))
-		//timeall = parsInt(localStorage.getItem('time_all'))
+	$(document).ready(function() { // On page load completed do it function.
+		var status = 0;
+		var btntoggle = 0;
+		var btntoggles  =0;
+			//if(localStorage.getItem('time_all'))
+			//timeall = parsInt(localStorage.getItem('time_all'))
 		
-	if(localStorage.getItem('timer_history') && localStorage.getItem('timer_current')){
-		lap_array = JSON.parse(localStorage.getItem('timer_history'));
-		timeinterval = parseInt(localStorage.getItem('timer_current'));
-	}
-	//var timeallstring = "";
-	var buildstring = "";
-
-	for(var i = 0; i < lap_array.length;i++)
-	{
-		buildstring =  '<h1 style="font-size:40px">' + (i+1) + ' - ' + lap_array[i] + '</h1>' + buildstring ;
-				
-
-	}
-	//$('#mytime').html(buildstring);
-	$('#mytime2').html(buildstring);
-	//$('#timeall').html(timeallstring);
-	$('#timer').html(millisectotime(timeinterval));
-	
-	$("#datablock02").hide();
-
-	$('#stpmode').on('click',function(){
-		$('#datacon').animate({left:0},500);
-		$('#slidemenu').animate({left:-200},500);
-		$("#datablock02").hide(500,'swing');
-		$("#datablock01").show(500);
-		status = 0;
-	});
-
-	$('#historymode').on('click',function(){
-		$('#datacon').animate({left:0},500);
-		$('#slidemenu').animate({left:-200},500);
-		$("#datablock01").hide(500);
-		$("#datablock02").show(500);
-		status = 0;
-	});
-	
-	$('#sumtime').on('click',function(){
-		$('#datacon').animate({left:0},500);
-		$('#slidemenu').animate({left:-200},500);
-		$("#datablock01").hide(500);
-		$("#datablock02").hide(500);
-		status = 0;
-	});
-	
-	$('#btnslide').on('click',function(){
-		if (status == 0)
-		{
-			$('#datacon').animate({left:200},500);
-			$('#slidemenu').animate({left:0},500);
-			status = 1;
+		if(localStorage.getItem('timer_history') && localStorage.getItem('timer_current')){
+			lap_array = JSON.parse(localStorage.getItem('timer_history'));
+			timeinterval = parseInt(localStorage.getItem('timer_current'));
 		}
-		else
-		{
+			//var timeallstring = "";
+			var buildstring = "";
+
+			for(var i = 0; i < lap_array.length;i++)
+			{
+				buildstring =  '<h1 style="font-size:40px">' + (i+1) + ' - ' + lap_array[i] + '</h1>' + buildstring ;			
+			}
+		//$('#mytime').html(buildstring);
+		$('#mytime2').html(buildstring);
+		//$('#timeall').html(timeallstring);
+		$('#timer').html(millisectotime(timeinterval));
+	/*
+		$("#datablock02").hide();
+
+		$('#stpmode').on('click',function(){
 			$('#datacon').animate({left:0},500);
 			$('#slidemenu').animate({left:-200},500);
-			status = 0;
-		}
-	});
-	
-	$('#btn-delall').on('click',function(){
-		localStorage.removeItem('timer_current');
-		localStorage.removeItem('timer_history');
-		timeinterval = 0;
-		$('#timer').html(millisectotime(timeinterval));
-		$('#mytime').html("");
-		$('#mytime2').html("");
-		lap_array.length = 0;
+			$("#datablock02").hide(500,'swing');
+			$("#datablock01").show(500);
+		status = 0;
+		});
 
-	});
+		$('#historymode').on('click',function(){
+			$('#datacon').animate({left:0},500);
+			$('#slidemenu').animate({left:-200},500);
+			$("#datablock01").hide(500);
+			$("#datablock02").show(500);
+			status = 0;
+		});
+	
+		$('#sumtime').on('click',function(){
+			$('#datacon').animate({left:0},500);
+			$('#slidemenu').animate({left:-200},500);
+			$("#datablock01").hide(500);
+			$("#datablock02").hide(500);
+			status = 0;
+		});
+	
+		$('#btnslide').on('click',function(){
+			if (status == 0)
+			{
+				$('#datacon').animate({left:200},500);
+				$('#slidemenu').animate({left:0},500);
+				status = 1;
+			}
+			else
+			{
+				$('#datacon').animate({left:0},500);
+				$('#slidemenu').animate({left:-200},500);
+				status = 0;
+			}
+		});*/
+	
+		$('#btn-delall').on('click',function(){
+			localStorage.removeItem('timer_current');
+			localStorage.removeItem('timer_history');
+			timeinterval = 0;
+			$('#timer').html(millisectotime(timeinterval));
+			$('#mytime').html("");
+			$('#mytime2').html("");
+			lap_array.length = 0;
+
+		});
 	
 	
 	/*$('#btn-pause').on('click',function(){
@@ -382,25 +292,25 @@ $(document).ready(function() { // On page load completed do it function.
 
 	});*/
 	
-	$('#btn-pause').on('click',function(){
-	if (btntoggles == 0)
-	{
-		$('#btn-pause').removeClass("btn-inverse");
-		$('#btn-pause').addClass("btn-success");
-		$('#btn-pause').html('Start');
-		timeuse = 0;
-		btntoggles =1;
-	}
-	else
-	{
-		$('#btn-pause').removeClass("btn-success");
-		$('#btn-pause').addClass("btn-inverse");
-		$('#btn-pause').html('Pause');
-		timeuse = 1;
-		TimerOK();
-		btntoggles =0;
-	}
-	});
+		$('#btn-pause').on('click',function(){
+		if (btntoggles == 0)
+			{
+			$('#btn-pause').removeClass("btn-inverse");
+			$('#btn-pause').addClass("btn-success");
+			$('#btn-pause').html('Start');
+			timeuse = 0;
+			btntoggles =1;
+			}
+		else
+			{
+			$('#btn-pause').removeClass("btn-success");
+			$('#btn-pause').addClass("btn-inverse");
+			$('#btn-pause').html('Pause');
+			timeuse = 1;
+			TimerOK();
+			btntoggles =0;
+			}
+		});
 	
 	/*$('#btn-pause').on('click',function(){
 		
@@ -408,60 +318,52 @@ $(document).ready(function() { // On page load completed do it function.
 			$('#timer').html(millisectotime(timeinterval));
 		});*/
 	
-	$('#btn-start-stop').on('click',function(){
-		if (btntoggle == 0)
-		{
-			$('#btn-start-stop').removeClass("btn-success");
-			$('#btn-start-stop').addClass("btn-danger");
-			$('#btn-start-stop').html('Stop');
-
-			$('#btn-pause').removeClass("btn-primary");
-			$('#btn-pause').addClass("btn-inverse");
-			$('#btn-pause').html('Pause');
-
-			timeuse = 1;			
-			TimerOK();
-			btntoggle = 1;
-		}
-		else
-		{
-			$('#btn-start-stop').removeClass("btn-danger");
-			$('#btn-start-stop').addClass("btn-success");
-			$('#btn-start-stop').html('Start');
-			
-			$('#btn-pause').removeClass("btn-success");
-			$('#btn-pause').addClass("btn-inverse");
-			$('#btn-pause').html('Pause');
-			//timeuse = 0;
-			btntoggle = 0;
-			Timeall();
-			
-			lap_array.push(millisectotime(timeinterval));
-			var buildstring = "";
-			for(var i = 0; i < lap_array.length;i++)
+		$('#btn-start-stop').on('click',function(){
+			if (btntoggle == 0)
 			{
-				buildstring =  '<h1 style="font-size:30px">' + (i+1) + ' - ' + lap_array[i] + '</h1>' + buildstring ;
-				
+				$('#btn-start-stop').removeClass("btn-success");
+				$('#btn-start-stop').addClass("btn-danger");
+				$('#btn-start-stop').html('Stop');
 
+				$('#btn-pause').removeClass("btn-primary");
+				$('#btn-pause').addClass("btn-inverse");
+				$('#btn-pause').html('Pause');
+
+				timeuse = 1;			
+				TimerOK();
+				btntoggle = 1;
 			}
+			else
+			{
+				$('#btn-start-stop').removeClass("btn-danger");
+				$('#btn-start-stop').addClass("btn-success");
+				$('#btn-start-stop').html('Start');
 			
-			$('#mytime2').html(buildstring);
-			ResetTime();
-		}
+				$('#btn-pause').removeClass("btn-success");
+				$('#btn-pause').addClass("btn-inverse");
+				$('#btn-pause').html('Pause');
+				//timeuse = 0;
+				btntoggle = 0;
+				Timeall();
+			
+				lap_array.push(millisectotime(timeinterval));
+				var buildstring = "";
+				for(var i = 0; i < lap_array.length;i++)
+				{
+					buildstring =  '<h1 style="font-size:30px">' + (i+1) + ' - ' + lap_array[i] + '</h1>' + buildstring ;
+			
+				}
+			
+				$('#mytime2').html(buildstring);
+				ResetTime();
+			}
+
+		});
+
 
 	});
 
 
-});
-
-
 </script>
-
-
-
-	
-</body>
-</head>
-</html
-
-		
+		</body>
+</html>
